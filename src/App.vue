@@ -2,7 +2,7 @@
 	<div id="app">
 		<!-- Navbar -->
 		<b-navbar toggleable="lg" type="dark" variant="info">
-			<b-navbar-brand href="#">Randomization Demonstration</b-navbar-brand>
+			<b-navbar-brand href="#">Randomisation Demonstration</b-navbar-brand>
 			<b-navbar-nav class="ml-auto">
 				<b-button @click="info = null" size="sm" variant="danger" class="my-2 my-sm-0">Close</b-button>
 			</b-navbar-nav>
