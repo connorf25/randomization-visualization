@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<p>Participant</p>
-		<p>{{color}}</p>
+		<p>{{colorGroup}}</p>
+		<p>{{colors[colorGroup]}}</p>
 		<p>{{isCluster}}</p>
 	</div>
 </template>
@@ -10,8 +11,18 @@
 export default {
 	name: 'HelloWorld',
 	props: {
-		color: String,
+		colorGroup: Number,
 		isCluster: Boolean
+	},
+	data() {
+		return {
+			colors: [
+				"#ed254e",
+				"#f9dc5c",
+				"#011936",
+				"#465362"
+			]
+		}
 	}
 }
 </script>
