@@ -15,7 +15,7 @@
 		</div>
 		<!-- Main layout -->
 		<div v-if="info">
-			<BaseParticipant :colorGroup="0" :isCluster="false" />
+			<BaseParticipant :group="0" :isCluster="false" />
 		</div>
 	</div>
 </template>

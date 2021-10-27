@@ -1,9 +1,7 @@
 <template>
 	<div>
-		<p>Participant</p>
-		<p>{{colorGroup}}</p>
-		<p>{{colors[colorGroup]}}</p>
-		<p>{{isCluster}}</p>
+		<b-icon-building v-if="isCluster" class="h1" :variant="variants[group]"></b-icon-building>
+		<b-icon-person-circle v-if="!isCluster" class="h1" :variant="variants[group]"></b-icon-person-circle>
 	</div>
 </template>
 
@@ -11,16 +9,19 @@
 export default {
 	name: 'HelloWorld',
 	props: {
-		colorGroup: Number,
+		group: Number,
 		isCluster: Boolean
 	},
 	data() {
 		return {
-			colors: [
-				"#ed254e",
-				"#f9dc5c",
-				"#011936",
-				"#465362"
+			variants: [
+				"primary",
+				"success",
+				"warning",
+				"danger",
+				"info",
+				"secondary",
+				"dark"
 			]
 		}
 	}
