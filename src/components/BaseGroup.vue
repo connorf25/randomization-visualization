@@ -1,5 +1,5 @@
 <template>
-	<div class="p-3">
+	<div>
 		<b-card :header="label" header-bg-variant="info" header-text-variant="white">
 			<BaseParticipant
 				class="d-inline m-1"
