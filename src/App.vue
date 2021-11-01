@@ -50,6 +50,11 @@ export default {
 		}
 	},
 	methods: {
+		getRandomInt(min, max) {
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		},
 		initializeParticipants($event) {
 			this.info = $event;
 			// Initialize groups
@@ -67,7 +72,7 @@ export default {
 				}
 				// Initialize participants
 				for(let j = 0; j < this.info.numberParticipants; j++) {
-					this.unassignedParticipants.push({ colorGroup: 0 });
+					this.unassignedParticipants.push({ colorGroup: this.getRandomInt(0, this.info.numberConfoundingFactors - 1) });
 				}
 			}
 		}
