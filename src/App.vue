@@ -39,7 +39,8 @@
 						{{ group.name }}
 					</b-button>
 					<b-button @click="assignParticipant(getRandomGroup())" class="mr-2" variant="info">Random</b-button>
-					<b-button @click="assignAllParticipants()" variant="warning">Randomise All</b-button>
+					<b-button v-if="!isRandomizing" @click="assignAllParticipants()" variant="warning">Randomise All</b-button>
+					<b-button v-if="isRandomizing" @click="isRandomizing = false" variant="danger">Stop</b-button>
 				</b-col>
 			</b-row>
 			<b-row>
@@ -76,6 +77,8 @@ export default {
 			unassignedParticipantsLabel: "Unassigned Participants",
 			// Holds the participants assigned to groups
 			groups: [],
+			// Whether randomization is in progress
+			isRandomizing: false,
 		}
 	},
 	methods: {
@@ -126,11 +129,13 @@ export default {
 		},
 		// Assign all participants with delay
 		assignAllParticipants() {
+			this.isRandomizing = true;
 			setTimeout(() => {
-				if(this.unassignedParticipants.length > 0) {
+				if(this.unassignedParticipants.length > 0 && this.isRandomizing) {
 					this.assignParticipant(this.getRandomGroup());
 					this.assignAllParticipants();
 				} else {
+					this.isRandomizing = false;
 					return
 				}
 			}, 500)
