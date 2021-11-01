@@ -9,7 +9,7 @@
 		</b-navbar>
 		<!-- Initialization form -->
 		<div v-if="!info">
-			<b-card title="Initialization" class="m-5">
+			<b-card title="Study Information" class="m-5">
 				<TheInitializationForm @submit="initializeParticipants" />
 			</b-card>
 		</div>

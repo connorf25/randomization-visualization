@@ -17,7 +17,7 @@
 				></b-form-input>
 			</b-form-group>
 
-			<b-form-group label="Randomization type:">
+			<b-form-group label="Randomisation type:">
 				<b-form-select
 					v-model="form.randomizationType"
 					:options="randomizationTypeOptions"
@@ -25,7 +25,7 @@
 				></b-form-select>
 			</b-form-group>
 
-			<b-form-group label="Unit of randomization:">
+			<b-form-group label="Unit of randomisation:">
 				<b-form-select
 					v-model="form.unitOfRandomization"
 					:options="unitOfRandomizationOptions"
@@ -41,7 +41,7 @@
 				></b-form-input>
 			</b-form-group>
 
-			<b-button type="submit" class="mr-2" variant="primary">Initialize</b-button>
+			<b-button type="submit" class="mr-2" variant="primary">Start</b-button>
 			<b-button type="reset" variant="danger">Reset</b-button>
 		</b-form>
 	</div>
