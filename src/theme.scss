@@ -1,18 +1,24 @@
 // Define your variable overrides here
-// $theme-colors: (
-//   "primary": #9cbfbc,
-// 	"secondary": #e7e7e8,
-// 	"info": #c2e7ff,
-// 	"success": #729780,
-// 	"warning": #ffc20a,
-//   "danger": #fe654f
-// );
+$theme-colors: (
+  "primary": #3678BE,
+	"info": #17A2B8,
+	"secondary": #6C757D,
+	"success": #5FAB78,
+	"warning": #FFD147,
+  "danger": #E1515F
+);
 
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
 
+// Import font
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 // General style overrides and custom classes
+body {
+	font-family: 'Roboto', sans-serif;
+}
 .row {
 	margin: 0px !important;
 }
