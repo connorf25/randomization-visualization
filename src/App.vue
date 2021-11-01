@@ -21,7 +21,7 @@
 						@change="unassignedParticipantsLabel = $event"
 						:label="unassignedParticipantsLabel"
 						:participants="unassignedParticipants"
-						:randomization-type="info.randomizationType"
+						:unit-of-randomization="info.unitOfRandomization"
 					/>
 				</b-col>
 			</b-row>
