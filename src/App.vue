@@ -106,8 +106,10 @@ export default {
 		},
 		// Assign a participant to a particular group
 		assignParticipant(groupIndex) {
-			const participant = this.unassignedParticipants.pop();
-			this.groups[groupIndex].participants.push(participant);
+			if (this.unassignedParticipants.length > 0) {
+				const participant = this.unassignedParticipants.pop();
+				this.groups[groupIndex].participants.push(participant);
+			}
 		},
 		// Assign all participants with delay
 		assignAllParticipants() {
