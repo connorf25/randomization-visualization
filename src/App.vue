@@ -76,4 +76,11 @@ export default {
 </script>
 
 <style>
+#app {
+	min-height: 100vh;
+	background-color: rgb(240, 240, 240);
+}
+.row {
+	margin: 0px !important;
+}
 </style>
