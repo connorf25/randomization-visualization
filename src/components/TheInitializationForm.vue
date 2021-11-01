@@ -71,6 +71,13 @@ export default {
 		}
 	},
 	methods: {
+		resetForm() {
+			this.form.numberGroups = 2;
+			this.form.numberParticipants= 20;
+			this.form.randomizationType= "simple";
+			this.form.unitOfRandomization= "individual";
+			this.form.numberConfoundingFactors= 2;
+		},
 		onSubmit(event) {
 			event.preventDefault();
 			this.$emit("submit", this.form);
@@ -78,11 +85,7 @@ export default {
 		onReset(event) {
 			event.preventDefault()
 			// Reset our form values
-			this.form.numberGroups = 2;
-			this.form.numberParticipants= 20;
-			this.form.randomizationType= "simple";
-			this.form.unitOfRandomization= "individual";
-			this.form.numberConfoundingFactors= 2;
+			this.resetForm();
 			// Trick to reset/clear native browser form validation state
 			this.show = false;
 			this.$nextTick(() => {

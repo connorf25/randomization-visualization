@@ -82,6 +82,8 @@ export default {
 		},
 		// Initialize participants and groups depending on input
 		initializeParticipants($event) {
+			this.unassignedParticipants = [];
+			this.groups = [];
 			this.info = $event;
 			// Initialize groups
 			for(let i = 0; i < this.info.numberGroups; i++) {
