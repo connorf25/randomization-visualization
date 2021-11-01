@@ -21,7 +21,7 @@ export default {
 		BaseParticipant
 	},
 	props: {
-		label: Number,
+		label: String,
 		participants: Array,
 	}
 }

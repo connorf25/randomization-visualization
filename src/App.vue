@@ -54,7 +54,17 @@ export default {
 			this.info = $event;
 			// Initialize groups
 			for(let i = 0; i < this.info.numberGroups; i++) {
-				this.groups.push({ name: "New Group", participants: [] });
+				switch (i) {
+					case 0:
+						this.groups.push({ name: "Treatment", participants: [] });
+						break;
+					case 1:
+						this.groups.push({ name: "Control", participants: [] });
+						break;
+					default:
+						this.groups.push({ name: "New Group", participants: [] });
+						break;
+				}
 				// Initialize participants
 				for(let j = 0; j < this.info.numberParticipants; j++) {
 					this.unassignedParticipants.push({ colorGroup: 0 });
