@@ -17,7 +17,12 @@
 		<div v-if="info">
 			<b-row>
 				<b-col class="m-3">
-					<BaseGroup label="Unassigned Participants" :participants="unassignedParticipants" />
+					<BaseGroup
+						@change="unassignedParticipantsLabel = $event"
+						:label="unassignedParticipantsLabel"
+						:participants="unassignedParticipants"
+						:randomization-type="info.randomizationType"
+					/>
 				</b-col>
 			</b-row>
 			<b-row>
@@ -38,7 +43,12 @@
 			</b-row>
 			<b-row>
 				<b-col class="m-3" v-for="(group, index) in groups" :key="index">
-					<BaseGroup :label="group.name" :participants="group.participants" />
+					<BaseGroup
+						@change="updateName(index, $event)"
+						:label="group.name"
+						:participants="group.participants"
+						:unit-of-randomization="info.unitOfRandomization"
+					/>
 				</b-col>
 			</b-row>
 		</div>
@@ -61,6 +71,7 @@ export default {
 			info: null,
 			// Holds all the unassigned participants
 			unassignedParticipants: [],
+			unassignedParticipantsLabel: "Unassigned Participants",
 			// Holds the participants assigned to groups
 			groups: [],
 		}
@@ -121,6 +132,10 @@ export default {
 					return
 				}
 			}, 500)
+		},
+		// Update group name
+		updateName(index, newName) {
+			this.$set(this.groups[index], "name", newName);
 		}
 	}
 }
