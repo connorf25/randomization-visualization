@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<b-card header-bg-variant="info" header-text-variant="white">
+			<!-- Header -->
 			<template #header>
 				<div v-if="!isEdit">
 					{{label}}
@@ -14,6 +15,7 @@
 					<b-button @click="cancel()" variant="danger" size="sm">Cancel</b-button>
 				</div>
 			</template>
+			<!-- Content -->
 			<BaseParticipant
 				class="d-inline m-1"
 				v-for="(participant, index) in participants"
@@ -21,6 +23,10 @@
 				:isCluster="unitOfRandomization == 'cluster'"
 				:key="index"
 			/>
+			<!-- Footer -->
+			<template #footer>
+				{{ generateFooterText() }}
+			</template>
 		</b-card>
 	</div>
 </template>
@@ -36,7 +42,8 @@ export default {
 	props: {
 		label: String,
 		participants: Array,
-		unitOfRandomization: String
+		unitOfRandomization: String,
+		numberConfoundingFactors: Number,
 	},
 	data() {
 		return {
@@ -58,6 +65,22 @@ export default {
 		cancel() {
 			this.newLabel = this.label;
 			this.isEdit = false;
+		},
+		countFactor(index) {
+			return this.participants.filter(participant => participant.colorGroup == index).length;
+		},
+		generateFooterText() {
+			var text = `Total: ${this.participants.length}`;
+			var factors = [];
+			if (this.participants.length > 0) {
+				for(let i = 0; i < this.numberConfoundingFactors; i++) {
+					factors.push(this.countFactor(i));
+				}
+				if (factors.length > 0) {
+					text += ` [${factors.join(", ")}]`
+				}
+			}
+			return text;
 		}
 	}
 }

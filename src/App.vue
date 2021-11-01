@@ -22,6 +22,7 @@
 						:label="unassignedParticipantsLabel"
 						:participants="unassignedParticipants"
 						:unit-of-randomization="info.unitOfRandomization"
+						:number-confounding-factors="info.numberConfoundingFactors"
 					/>
 				</b-col>
 			</b-row>
@@ -48,6 +49,7 @@
 						:label="group.name"
 						:participants="group.participants"
 						:unit-of-randomization="info.unitOfRandomization"
+						:number-confounding-factors="info.numberConfoundingFactors"
 					/>
 				</b-col>
 			</b-row>
